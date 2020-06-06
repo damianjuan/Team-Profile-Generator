@@ -4,15 +4,75 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+const jest = require("jest")
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+const team = [];
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
+promptUser = () => {
+
+
+
+    selectPrompt = () => {
+        inquirer.prompt([
+            {
+                type: "list",
+                name: "choice",
+                message: "Select the type of employee you would like to add.",
+                choices: [
+                    "Manager",
+                    "Engineer",
+                    "Intern",
+                    "Finished adding employees"
+                ]
+            }
+        ])
+    };
+
+
+    managerPrompt = () => {
+        inquirer.prompt([
+            {
+                type: "input",
+                name: "managerName",
+                message: "Enter Manager's name."
+            },
+            {
+                type: "input",
+                name: "managerId",
+                message: "Enter Manager's Id."
+            },
+            {
+                type: "input",
+                name: "managerEmail",
+                message: "Enter Manager's email."
+            },
+            {
+                type: "input",
+                name: "managersOfficeNumber",
+                message: "Enter Manager's office number."
+            }
+        ])
+
+    }
+
+    engineerPrompt = () => {
+
+    }
+
+    internPrompt = () => {
+
+    }
+    selectPrompt();
+};
+
+promptUser();
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
