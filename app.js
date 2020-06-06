@@ -41,32 +41,76 @@ promptUser = () => {
             {
                 type: "input",
                 name: "managerName",
-                message: "Enter Manager's name."
+                message: "Enter manager's name."
             },
             {
                 type: "input",
                 name: "managerId",
-                message: "Enter Manager's Id."
+                message: "Enter manager's Id."
             },
             {
                 type: "input",
                 name: "managerEmail",
-                message: "Enter Manager's email."
+                message: "Enter manager's email."
             },
             {
                 type: "input",
                 name: "managersOfficeNumber",
-                message: "Enter Manager's office number."
+                message: "Enter manager's office number."
             }
         ])
 
     }
 
     engineerPrompt = () => {
+        inquirer.prompt([
+            {
+                type: "input",
+                name: "engineerName",
+                message: "Enter engineer's name."
+            },
+            {
+                type: "input",
+                name: "engineerId",
+                message: "Enter engineer's Id."
+            },
+            {
+                type: "input",
+                name: "engineerEmail",
+                message: "Enter engineer's email."
+            },
+            {
+                type: "input",
+                name: "github",
+                message: "Enter engineer's github username."
+            }
+        ])
 
     }
 
     internPrompt = () => {
+        inquirer.prompt([
+            {
+                type: "input",
+                name: "internName",
+                message: "Enter intern's name."
+            },
+            {
+                type: "input",
+                name: "internId",
+                message: "Enter Manager's Id."
+            },
+            {
+                type: "input",
+                name: "internEmail",
+                message: "Enter Manager's email."
+            },
+            {
+                type: "input",
+                name: "internSchool",
+                message: "Enter intern's school."
+            }
+        ])
 
     }
     selectPrompt();
