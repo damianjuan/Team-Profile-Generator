@@ -32,7 +32,24 @@ promptUser = () => {
                     "Finished adding employees"
                 ]
             }
-        ])
+        ]).then(res => {
+            switch (res.choice) {
+                case "Manager":
+                    managerPrompt();
+                    break;
+                case "Engineer":
+                    engineerPrompt();
+                    break;
+                case "Intern":
+                    internPrompt();
+                    break;
+                case "Finished adding employees":
+                    renderHtml();
+                    break;
+
+
+            }
+        })
     };
 
 
@@ -114,6 +131,10 @@ promptUser = () => {
 
     }
     selectPrompt();
+};
+
+renderHtml = () => {
+    console.log("renderHtml function called");
 };
 
 promptUser();
