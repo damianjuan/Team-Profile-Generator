@@ -11,7 +11,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-const team = [];
+const allEmployees = [];
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
@@ -75,7 +75,13 @@ promptUser = () => {
                 name: "managersOfficeNumber",
                 message: "Enter manager's office number."
             }
-        ])
+        ]).then(res => {
+            // constructor(name, id, email, officeNumber)
+            const manager = new Manager(res.managerName, res.managerId, res.managerEmail, res.managersOfficeNumber);
+            allEmployees.push(manager);
+            console.table(allEmployees);
+            selectPrompt();
+        })
 
     }
 
@@ -101,7 +107,13 @@ promptUser = () => {
                 name: "github",
                 message: "Enter engineer's github username."
             }
-        ])
+        ]).then(res => {
+            //constructor(name, id, email, github)
+            const engineer = new Engineer(res.engineerName, res.engineerId, res.engineerEmail, res.github);
+            allEmployees.push(engineer);
+            console.table(allEmployees);
+            selectPrompt();
+        })
 
     }
 
@@ -115,21 +127,29 @@ promptUser = () => {
             {
                 type: "input",
                 name: "internId",
-                message: "Enter Manager's Id."
+                message: "Enter intern's Id."
             },
             {
                 type: "input",
                 name: "internEmail",
-                message: "Enter Manager's email."
+                message: "Enter intern's email."
             },
             {
                 type: "input",
                 name: "internSchool",
                 message: "Enter intern's school."
             }
-        ])
+        ]).then(res => {
+            // constructor(name, id, email, school)
+            const intern = new Intern(res.internName, res.internId, res.internEmail, res.internSchool);
+            allEmployees.push(intern);
+            console.table(allEmployees);
+            selectPrompt();
+        })
 
     }
+
+
     selectPrompt();
 };
 
