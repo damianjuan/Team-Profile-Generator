@@ -155,6 +155,8 @@ promptUser = () => {
 
 renderHtml = () => {
     console.log("renderHtml function called");
+    fs.mkdirSync(OUTPUT_DIR);
+    fs.writeFileSync(outputPath, render(allEmployees), "utf-8");
 };
 
 promptUser();
