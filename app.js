@@ -17,8 +17,6 @@ const allEmployees = [];
 // and to create objects for each team member (using the correct classes as blueprints!)
 promptUser = () => {
 
-
-
     selectPrompt = () => {
         inquirer.prompt([
             {
@@ -46,12 +44,9 @@ promptUser = () => {
                 case "Finished adding employees":
                     renderHtml();
                     break;
-
-
             }
         })
     };
-
 
     managerPrompt = () => {
         inquirer.prompt([
@@ -79,7 +74,7 @@ promptUser = () => {
             // constructor(name, id, email, officeNumber)
             const manager = new Manager(res.managerName, res.managerId, res.managerEmail, res.managersOfficeNumber);
             allEmployees.push(manager);
-            console.table(allEmployees);
+            //console.table(allEmployees);
             selectPrompt();
         })
 
@@ -111,7 +106,7 @@ promptUser = () => {
             //constructor(name, id, email, github)
             const engineer = new Engineer(res.engineerName, res.engineerId, res.engineerEmail, res.github);
             allEmployees.push(engineer);
-            console.table(allEmployees);
+            //console.table(allEmployees);
             selectPrompt();
         })
 
@@ -143,7 +138,7 @@ promptUser = () => {
             // constructor(name, id, email, school)
             const intern = new Intern(res.internName, res.internId, res.internEmail, res.internSchool);
             allEmployees.push(intern);
-            console.table(allEmployees);
+            //console.table(allEmployees);
             selectPrompt();
         })
 
@@ -154,8 +149,9 @@ promptUser = () => {
 };
 
 renderHtml = () => {
-    console.log("renderHtml function called");
+    //console.log("renderHtml function called");
     fs.mkdirSync(OUTPUT_DIR);
+
     fs.writeFileSync(outputPath, render(allEmployees), "utf-8");
 };
 
